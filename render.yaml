@@ -1,8 +1,3 @@
-databases:
-  - name: calendar-db
-    databaseName: calendar
-    plan: free
-
 services:
   - type: web
     name: my-calendar
@@ -11,6 +6,4 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - key: DATABASE_URL
-        fromDatabase:
-          name: calendar-db
-          property: connectionString
+        sync: false
