@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calendar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <h1>My Calendar</h1>
+        </header>
+
+        <main class="calendar-container">
+            <div class="calendar-nav">
+                <button class="nav-btn" id="prev-month">&#8249;</button>
+                <h2 class="month-title" id="month-title"></h2>
+                <button class="nav-btn" id="next-month">&#8250;</button>
+            </div>
+
+            <div class="calendar-grid" id="calendar-grid">
+                <div class="day-header">Sun</div>
+                <div class="day-header">Mon</div>
+                <div class="day-header">Tue</div>
+                <div class="day-header">Wed</div>
+                <div class="day-header">Thu</div>
+                <div class="day-header">Fri</div>
+                <div class="day-header">Sat</div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 class="modal-date" id="modal-date"></h3>
+                <button class="close-btn" id="close-modal">&times;</button>
+            </div>
+
+            <div class="entries-list" id="entries-list"></div>
+
+            <div class="add-section">
+                <div class="type-tabs">
+                    <button class="type-tab active" data-type="note">+ Note</button>
+                    <button class="type-tab" data-type="event">+ Event</button>
+                </div>
+
+                <form id="entry-form">
+                    <input type="text" class="form-input" id="entry-title" placeholder="Title" required>
+
+                    <div id="note-fields">
+                        <textarea class="form-input" id="entry-content" placeholder="Write your note..." rows="3"></textarea>
+                    </div>
+
+                    <div id="event-fields" style="display:none">
+                        <input type="time" class="form-input" id="entry-time">
+                        <select class="form-input" id="entry-category">
+                            <option value="">Category...</option>
+                            <option value="School">School</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Work">Work</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <textarea class="form-input" id="event-content" placeholder="Description (optional)" rows="2"></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
